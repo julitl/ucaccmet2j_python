@@ -69,10 +69,16 @@ print(yearly_per_seattle)
 relative_monthly_precipitation = {}
 
 key = 1
+# Loop for each measurement in the dictionary total monthly precipitation
 for measurement in total_monthly_precipitation:
+    # Adding in the 1st spot of the new dictionary the total monthly precipitation divided by the yearly percipitation
     relative_monthly_precipitation[key] =  total_monthly_precipitation[key]/ yearly_per_seattle
     key += 1
 
 # Print the relative monthly precipitation 
 print(relative_monthly_precipitation)
 
+# Summary data saved into .json file
+output_data = {'Monthly Precipitation': total_monthly_precipitation, 'Yearly Precipitation': yearly_per_seattle, 'Relative Monthly Precipitation': relative_monthly_precipitation}
+with open('results.json', 'w', encoding = 'utf-8') as file:
+    json.dump(output_data, file)
