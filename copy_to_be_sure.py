@@ -6,6 +6,19 @@
 # Firstly, importing json, so I can save this as a .json file later
 import json 
 
+#3.
+
+# Importing csv as well, so the file stations.csv can be opened
+import csv
+
+# Opening the file
+with open('precipitation.json') as file:
+    precipitation = json.load(file)
+
+# Read csv file to a list of dictionaries
+with open('stations.csv') as file:
+    stations = list(csv.DictReader(file))
+
 # Opening the file
 with open('precipitation.json') as file:
     precipitation = json.load(file)
